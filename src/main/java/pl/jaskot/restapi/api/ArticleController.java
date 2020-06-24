@@ -4,7 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pl.jaskot.restapi.dao.entity.Article;
-import pl.jaskot.restapi.manager.ArticleManager;
+import pl.jaskot.restapi.manager.article.ArticleManager;
+import pl.jaskot.restapi.manager.article.ArticleManagerImpl;
 
 import java.util.Optional;
 
@@ -15,8 +16,8 @@ public class ArticleController {
     private ArticleManager articleManager;
 
     @Autowired
-    public ArticleController(ArticleManager articleManager) {
-        this.articleManager = articleManager;
+    public ArticleController(ArticleManagerImpl articleManagerImpl) {
+        this.articleManager = articleManagerImpl;
     }
 
     @GetMapping

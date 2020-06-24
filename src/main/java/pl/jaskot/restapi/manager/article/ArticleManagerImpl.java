@@ -1,4 +1,4 @@
-package pl.jaskot.restapi.manager;
+package pl.jaskot.restapi.manager.article;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -10,12 +10,12 @@ import pl.jaskot.restapi.dao.entity.Article;
 import java.util.Optional;
 
 @Service
-public class ArticleManager {
+public class ArticleManagerImpl implements ArticleManager {
 
     private ArticleRepo articleRepo;
 
     @Autowired
-    public ArticleManager(ArticleRepo articleRepo) {
+    public ArticleManagerImpl(ArticleRepo articleRepo) {
         this.articleRepo = articleRepo;
     }
 
@@ -28,7 +28,7 @@ public class ArticleManager {
     }
 
     public Article save(Article article){
-        if(article.getAuthor()=="" || article.getAuthor() == null){
+        if(article.getAuthor().isEmpty()){
             return null;
         }
         return articleRepo.save(article);

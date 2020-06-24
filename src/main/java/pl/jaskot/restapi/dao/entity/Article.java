@@ -20,7 +20,9 @@ public class Article {
     private String author;
     private Date createdTime;
 
-    public Article() {
+    public Article(String message, String author) {
+        this.message = message;
+        this.author = author;
         createdTime = Calendar.getInstance().getTime();
     }
 
